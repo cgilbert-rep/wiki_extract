@@ -1,5 +1,5 @@
 from modules.download_functions import get_wikidump_url,\
-    get_list_downloads_wikidump
+    get_list_downloads_wikidump, get_file_from_url
 
 
 def run(argv=None):
@@ -15,5 +15,10 @@ def run(argv=None):
     )
     print(list_downloads_wikidump)
     # Download files
+    for file in list_downloads_wikidump[:1]:
+        get_file_from_url(
+            url=file[0],
+            target_folder='temp_files/'
+        )
     # Preprocess files
     return True

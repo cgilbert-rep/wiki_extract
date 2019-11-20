@@ -102,3 +102,9 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# personal notes
+doc.txt
+
+# temporary local files
+temp_files/
