@@ -5,6 +5,7 @@ cffi==1.13.2
 chardet==3.0.4
 cryptography==2.8
 idna==2.8
+mwparserfromhell==0.5.4
 pycparser==2.19
 pyOpenSSL==19.0.0
 PySocks==1.7.1
