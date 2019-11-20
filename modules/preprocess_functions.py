@@ -134,8 +134,10 @@ def split_articles(
     build_folder(folder_output)
     name_output = '-'.join(
         data_path.split('/')[-1].split('.')[:-1])
-    file_output = folder_output + name_output + '.ndjson'
+    file_output = folder_output + '/' + name_output + '.ndjson'
     with open(file_output, 'w') as f_out:
         for article in handler._pages:
             f_out.write(json.dumps({k: article[k]
                 for k in ('index', 'title', 'wikilinks', 'infobox')}) + '\n')
+    print("%s successfully writted" % file_output)
+    return True
