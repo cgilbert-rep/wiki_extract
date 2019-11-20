@@ -23,7 +23,7 @@ def run(argv=None):
     print("Downloading dump")
     start_time = time.time()
     temp_folder = 'temp_files/'
-    for file in list_downloads_wikidump[:2]:
+    for file in list_downloads_wikidump:
         get_file_from_url(
             url=file[0],
             target_folder=temp_folder
