@@ -28,7 +28,7 @@ def run(argv=None):
             url=file[0],
             target_folder=temp_folder
         )
-    print("Dump downloaded in %d s" % time.time() - start_time)
+    print("Dump downloaded in %s s" % (time.time() - start_time))
     # Preprocess files
     print("Preprocessing files")
     start_time = time.time()
@@ -40,4 +40,4 @@ def run(argv=None):
         folder_output="output_files")
     pool = Pool(processes=os.cpu_count())
     pool.map(split_articles_partial, list_preprocess_files)
-    print("Files preprocessed in %d s" % (time.time() - start_time))
+    print("Files preprocessed in %s s" % (time.time() - start_time))
