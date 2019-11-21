@@ -38,6 +38,6 @@ def run(argv=None):
     split_articles_partial = partial(
         split_articles,
         folder_output="output_files")
-    pool = Pool(processes=os.cpu_count())
+    pool = Pool(processes=16)
     pool.map(split_articles_partial, list_preprocess_files)
     print("Files preprocessed in %s s" % (time.time() - start_time))
