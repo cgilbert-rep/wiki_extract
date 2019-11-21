@@ -22,22 +22,22 @@ def run(argv=None):
     print("Downloading dump")
     start_time = time.time()
     temp_folder = 'temp_files/'
-    for file in list_downloads_wikidump[36:]:
+    for file in list_downloads_wikidump:
         get_file_from_url(
             url=file[0],
             target_folder=temp_folder
         )
     print("Dump downloaded in %s s" % (time.time() - start_time))
     # Preprocess files
-    # print("Preprocessing files")
-    # start_time = time.time()
-    # list_preprocess_files = [
-    #     os.path.join(temp_folder, file)
-    #     for file in os.listdir(temp_folder) if file.endswith(".bz2")]
-    # print(list_preprocess_files)
-    # split_articles_partial = partial(
-    #     split_articles,
-    #     folder_output="output_files")
-    # pool = Pool(processes=os.cpu_count())
-    # pool.map(split_articles_partial, list_preprocess_files)
-    # print("Files preprocessed in %s s" % (time.time() - start_time))
+    print("Preprocessing files")
+    start_time = time.time()
+    list_preprocess_files = [
+        os.path.join(temp_folder, file)
+        for file in os.listdir(temp_folder) if file.endswith(".bz2")]
+    print(list_preprocess_files)
+    split_articles_partial = partial(
+        split_articles,
+        folder_output="output_files")
+    pool = Pool(processes=os.cpu_count())
+    pool.map(split_articles_partial, list_preprocess_files)
+    print("Files preprocessed in %s s" % (time.time() - start_time))
