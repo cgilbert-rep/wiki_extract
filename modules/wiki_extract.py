@@ -43,11 +43,11 @@ def run(argv=None):
         if file.split('/')[1].replace('.bz2', '.ndjson').replace('.xml', '-xml')
         not in list_already_done]
     print(list_preprocess_files)
-    # split_articles_partial = partial(
-    #     split_articles,
-    #     folder_output=output_folder)
-    # pool = Pool(processes=16)
-    # pool.map(split_articles_partial, list_preprocess_files)
-    for file in list_preprocess_files:
-        split_articles(file, folder_output=output_folder)
-    # print("Files preprocessed in %s s" % (time.time() - start_time))
+    split_articles_partial = partial(
+        split_articles,
+        folder_output=output_folder)
+    pool = Pool(processes=16)
+    pool.map(split_articles_partial, list_preprocess_files)
+    # for file in list_preprocess_files:
+    #     split_articles(file, folder_output=output_folder)
+    print("Files preprocessed in %s s" % (time.time() - start_time))
