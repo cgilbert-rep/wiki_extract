@@ -38,13 +38,14 @@ def run(argv=None):
     list_already_done = [
         file
         for file in os.listdir(output_folder) if file.endswith(".ndjson")]
-    list_preprocess_files = [file for file in list_preprocess_files
-        if file.split('/')[1].replace('.bz2','.ndjson').replace('.xml','-xml') not in list_already_done]
-    print(list_already_done)
+    list_preprocess_files = [
+        file for file in list_preprocess_files
+        if file.split('/')[1].replace('.bz2', '.ndjson').replace('.xml', '-xml')
+        not in list_already_done]
     print(list_preprocess_files)
-    # split_articles_partial = partial(
-    #     split_articles,
-    #     folder_output=output_folder)
-    # pool = Pool(processes=16)
-    # pool.map(split_articles_partial, list_preprocess_files)
-    # print("Files preprocessed in %s s" % (time.time() - start_time))
+    split_articles_partial = partial(
+        split_articles,
+        folder_output=output_folder)
+    pool = Pool(processes=16)
+    pool.map(split_articles_partial, list_preprocess_files)
+    print("Files preprocessed in %s s" % (time.time() - start_time))
