@@ -37,9 +37,10 @@ def run(argv=None):
     output_folder = "output_files"
     list_already_done = [
         os.path.join(output_folder, file)
-        for file in os.listdir(output_folder) if file.endswith(".bz2")]
+        for file in os.listdir(output_folder) if file.endswith(".ndjson")]
     list_preprocess_files = [file for file in list_preprocess_files
         if file.split('/')[1].replace('.bz2','.ndjson').replace('.xml','-xml') not in list_already_done]
+    print(os.listdir(output_folder))
     print(list_already_done)
     print(list_preprocess_files)
     # split_articles_partial = partial(
