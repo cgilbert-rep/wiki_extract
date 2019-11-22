@@ -1,7 +1,6 @@
 import xml.sax
 import mwparserfromhell
 import bz2
-import os
 import time
 import json
 from modules.utils import build_folder
