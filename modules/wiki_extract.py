@@ -44,11 +44,9 @@ def run(argv=None):
         not in list_already_done]
     list_preprocess_files.reverse()
     print(list_preprocess_files)
-    split_articles_partial = partial(
-        split_articles,
-        folder_output=output_folder)
-    pool = Pool(processes=16)
-    pool.map(split_articles_partial, list_preprocess_files)
-    # for file in list_preprocess_files:
-    #     split_articles(file, folder_output=output_folder)
-    print("Files preprocessed in %s s" % (time.time() - start_time))
+    # split_articles_partial = partial(
+    #     split_articles,
+    #     folder_output=output_folder)
+    # pool = Pool(processes=16)
+    # pool.map(split_articles_partial, list_preprocess_files)
+    # print("Files preprocessed in %s s" % (time.time() - start_time))
