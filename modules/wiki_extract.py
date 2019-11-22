@@ -42,6 +42,7 @@ def run(argv=None):
         file for file in list_preprocess_files
         if file.split('/')[1].replace('.bz2', '.ndjson').replace('.xml', '-xml')
         not in list_already_done]
+    list_preprocess_files.reverse()
     print(list_preprocess_files)
     split_articles_partial = partial(
         split_articles,
