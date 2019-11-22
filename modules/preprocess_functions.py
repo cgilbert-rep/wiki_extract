@@ -37,9 +37,12 @@ class WikiXmlHandlerSplit(xml.sax.handler.ContentHandler):
         if name == 'page':
             # Append to the list of articles
             page = self._values.copy()
-            page = process_article(page)
-            page['index'] = self._article_count
-            self._pages.append(page)
+            try:
+                page = process_article(page)
+                page['index'] = self._article_count
+                self._pages.append(page)
+            except ValueError:
+                print('Error at index %d !' % self._article_count)
             self._article_count += 1
 
 
