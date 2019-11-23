@@ -49,4 +49,6 @@ def run(argv=None):
     #     folder_output=output_folder)
     # pool = Pool(processes=16)
     # pool.map(split_articles_partial, list_preprocess_files)
-    # print("Files preprocessed in %s s" % (time.time() - start_time))
+    for file in list_preprocess_files:
+        split_articles(file, folder_output=output_folder)
+    print("Files preprocessed in %s s" % (time.time() - start_time))
